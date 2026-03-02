@@ -1,4 +1,4 @@
-# AI Stock Forecasting & Portfolio Optimization System
+# Stock Market Forecasting with TimeGPT
 
 ---
 
