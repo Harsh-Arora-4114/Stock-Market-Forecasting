@@ -1,6 +1,5 @@
 # Stock-Market-Forecasting-with-TimeGPT
 
----
 
 ## Overview
 
