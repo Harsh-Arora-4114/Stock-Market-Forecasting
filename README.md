@@ -1,30 +1,36 @@
-# Stock-Market-Forecasting-with-TimeGPT
+# AI Stock Forecasting & Portfolio Optimization System
 
 ---
 
 ## Overview
 
-This project focuses on forecasting stock prices and optimizing portfolios using Artificial Intelligence and Quantitative Finance techniques. The system integrates Deep Learning (LSTM), AI-based Time Series Forecasting (TimeGPT), Backtesting, and Modern Portfolio Theory to create an end-to-end financial analytics platform.
+This project focuses on forecasting stock prices and optimizing investment portfolios using Artificial Intelligence and Quantitative Finance techniques. The system integrates:
 
-The application is built using **Streamlit** for an interactive user interface and allows users to:
+* **TimeGPT (Nixtla API)** – Foundation model for time-series forecasting
+* **LSTM (Deep Learning Model)** – Custom neural network forecasting
+* **Backtesting with RMSE evaluation**
+* **Modern Portfolio Theory (MPT) Optimization**
+* **Streamlit Interactive Dashboard**
 
-* Forecast stock prices (AAPL, TSLA, MSFT)
+The application allows users to:
+* Forecast future stock prices
 * Compare AI models (TimeGPT vs LSTM)
-* Evaluate prediction accuracy using RMSE
-* Optimize portfolio weights using volatility minimization
+* Evaluate prediction accuracy
+* Generate simple trading signals
+* Optimize portfolio allocation
 
-This project combines Machine Learning, Financial Engineering, and Data Science into one scalable system.
+This is a complete AI + Quant Finance project suitable for research, academic work, and resume portfolios.
 
 ---
 
 ## Objectives
 
-* Build an AI-powered stock forecasting system.
-* Implement LSTM-based deep learning for time series prediction.
-* Integrate TimeGPT API for advanced forecasting.
-* Evaluate model performance using RMSE.
-* Implement portfolio optimization using Modern Portfolio Theory.
-* Create an interactive web dashboard using Streamlit.
+* Develop an AI-powered stock forecasting system
+* Implement LSTM-based time-series prediction
+* Integrate Nixtla’s TimeGPT API
+* Evaluate models using RMSE
+* Perform portfolio optimization using volatility minimization
+* Build an interactive financial analytics dashboard
 
 ---
 
@@ -32,29 +38,40 @@ This project combines Machine Learning, Financial Engineering, and Data Science 
 
 ### Stock Forecasting
 
-* Historical data download using Yahoo Finance API
+* Historical data download using Yahoo Finance
 * 30-day future price prediction
 * Model comparison: TimeGPT vs LSTM
-* Visual forecast vs actual comparison
+* Actual vs forecast visualization
+
+### TimeGPT API Integration
+
+* Uses Nixtla’s foundation time-series model
+* No training required
+* Requires API key
+* Fast and production-ready forecasting
+
+### LSTM Deep Learning Model
+
+* 60-day rolling window
+* MinMax scaling
+* 50 LSTM units
+* Recursive multi-step forecasting
 
 ### Model Evaluation
 
-* RMSE (Root Mean Squared Error) calculation
-* Basic trading signal logic (Buy/Sell indicator)
+* Root Mean Squared Error (RMSE)
+* Forecast comparison with actual prices
+* Basic trading signal logic (Buy/Sell)
 
 ### Portfolio Optimization
 
-* Uses covariance matrix & mean returns
+* Uses daily returns
+* Computes covariance matrix
 * Minimizes portfolio volatility
-* Weight constraints: No short selling (0–1 range)
-* Fully invested portfolio (weights sum to 1)
+* Constraints:
 
-### Expandability
-
-* Add more stocks dynamically
-* Add Sharpe Ratio optimization
-* Add Monte Carlo simulation
-* Deploy to cloud
+  * Weights sum to 1
+  * No short selling (0 ≤ weight ≤ 1)
 
 ---
 
@@ -70,25 +87,16 @@ This project combines Machine Learning, Financial Engineering, and Data Science 
 | Optimization         | SciPy              |
 | Evaluation           | Scikit-learn       |
 | Visualization        | Matplotlib         |
+| Forecasting API      | Nixtla TimeGPT     |
 
 ---
 
-## Dataset
+### Why TimeGPT?
 
-Stock price data is fetched dynamically using Yahoo Finance API.
-
-Example stocks used:
-
-* Apple (AAPL)
-* Tesla (TSLA)
-* Microsoft (MSFT)
-
-Data preprocessing:
-
-* Reset index
-* Rename columns to time-series format (`ds`, `y`)
-* Percentage return calculation for portfolio optimization
-* Train horizon: 30 days
+* Pretrained foundation model
+* No manual deep learning training required
+* Automatically captures trend & seasonality
+* Works well for financial time series
 
 ---
 
@@ -96,44 +104,41 @@ Data preprocessing:
 
 ### 1. Data Collection & Preprocessing
 
-* Download stock data from 2020 onward
+* Download stock prices (from 2020)
 * Select closing prices
-* Convert into time series format
-* Normalize data for LSTM
+* Format for time-series models
+* Scale data for LSTM
 
-### 2. Exploratory Data Visualization
+### 2. Data Visualization
 
-* Line chart of historical stock prices
-* Trend visualization before forecasting
+* Plot historical stock trends
+* Understand price movement
 
 ### 3. Model Development
 
 #### LSTM Model
 
-* 60-day rolling window
-* MinMax Scaling
-* 50 LSTM units
+* Convolution-free sequential model
+* 60-day input window
 * Dense output layer
-* Recursive forecasting
 
 #### TimeGPT Model
 
 * API-based forecasting
-* Advanced time-series AI model
+* External foundation model
 
-### 4. Model Training & Evaluation
+### 4. Model Evaluation
 
-* Loss: Mean Squared Error
-* Optimizer: Adam
-* RMSE calculation
-* Forecast vs actual comparison
+* Calculate RMSE
+* Compare actual vs predicted values
+* Generate trading signals
 
 ### 5. Portfolio Optimization
 
-* Calculate daily returns
-* Compute covariance matrix
+* Compute daily returns
+* Calculate covariance matrix
 * Minimize portfolio volatility
-* Generate optimal weight allocation
+* Generate optimal asset weights
 
 ---
 
@@ -141,69 +146,57 @@ Data preprocessing:
 
 Forecast Horizon: 30 Days
 
-Evaluation Metric: RMSE
-
 Outputs:
 
 * Predicted future stock prices
 * RMSE score
-* Optimal portfolio weights for AAPL, TSLA, MSFT
+* Optimal portfolio allocation
 
 Key Insights:
 
-* LSTM captures short-term trends effectively
-* TimeGPT performs well for structured time series
-* Diversified portfolios reduce volatility
-
----
-
-## Applications
-
-* Quantitative Research Projects
-* Financial Data Science Portfolio
-* AI-based Trading Research
-* Academic ML + Finance Integration
-* Resume Project for Data Analyst / ML Engineer / Quant Developer
+* LSTM captures short-term patterns effectively
+* TimeGPT performs strongly without custom training
+* Diversification reduces portfolio volatility
 
 ---
 
 ## How to Run
 
-### 1. Clone the repository
+### 1.  Clone Repository
 
 ```bash
 git clone https://github.com/yourusername/AI-Stock-Forecasting-System.git
 cd AI-Stock-Forecasting-System
 ```
 
-### 2. Install dependencies
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Or install manually:
+If requirements.txt not available:
 
 ```bash
 pip install streamlit yfinance pandas numpy matplotlib tensorflow scikit-learn scipy
 ```
 
-### 3. Run the application
+### 3. Run Application
 
 ```bash
 streamlit run app.py
 ```
 
-Open in browser:
+Open browser:
 
 ```
 http://localhost:8501
 ```
 
-### 4. Using TimeGPT (Optional)
+### 4. Using TimeGPT
 
 * Enter Nixtla API key
-* Select TimeGPT model
+* Select TimeGPT
 * Click "Run Forecast"
 
 ---
@@ -212,10 +205,19 @@ http://localhost:8501
 
 * Add Sharpe Ratio maximization
 * Add Monte Carlo simulation
-* Add live market streaming
-* Implement risk-adjusted metrics
+* Add multi-asset dynamic selection
+* Add risk-adjusted performance metrics
 * Deploy on Streamlit Cloud / AWS
-* Add automated backtesting with strategy returns
+* Add advanced backtesting (strategy returns, CAGR, drawdown)
+
+---
+
+## Applications
+
+* Quantitative Finance Research
+* AI in Financial Markets
+* Resume Project (ML Engineer / Data Scientist / Quant Developer)
+* Academic AI + Finance Integration
 
 ---
 
