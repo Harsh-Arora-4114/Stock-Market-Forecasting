@@ -184,7 +184,7 @@ pip install streamlit yfinance pandas numpy matplotlib tensorflow scikit-learn s
 ### 3. Run Application
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 Open browser:
